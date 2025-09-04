@@ -146,6 +146,7 @@ GPU support becomes much more complicated due to the near-infinite amount of GPU
 * Intel's [GT2+ tier](https://en.wikipedia.org/wiki/Intel_Graphics_Technology) series iGPUs
   * Ivy Bridge through Ice Lake iGPU support is covered in this guide
     * Info on GMA series iGPUs can be found here: [GMA Patching](https://dortania.github.io/OpenCore-Post-Install/gpu-patching/)
+  * Intel's newer iGPUs on 11th gen and up are not supported till date.
   * Note GT2 refers to the tier of iGPU, low-end GT1 iGPUs found on Pentiums, Celerons and Atoms are not supported in macOS
 
 And an important note for **Laptops with discrete GPUs**:

@@ -43,7 +43,7 @@ You might need to press space in order to see the installer, as in later version
 
 :::
 
-For us, **Option 2.** is the one we want. Depending how the installer was made, it may report as either **"macOS Base System (External)"**, **"Install macOS Big Sur (External)"** or **"*Your USB drive's name* (External)"**
+For us, **Option 2.** is the one we want. Depending how the installer was made, it may report as either **"macOS Base System (External)"**, **"Install macOS (Version Name) (External)"** or **"*Your USB drive's name* (External)"**
 
 ## macOS Installer
 

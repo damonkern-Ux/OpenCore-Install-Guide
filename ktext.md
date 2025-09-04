@@ -137,6 +137,7 @@ While VirtualSMC supports 10.4, plugins may require newer versions.
   * AppleALCU.kext is a pared down version of AppleALC that only supports digital audio - but you can still use AppleALC.kext on digital audio-only systems
   * AMD 15h/16h may have issues with AppleALC and Ryzen/Threadripper systems rarely have mic support
   * Requires OS X 10.4 or newer
+  * AppleHDA was removed form macOS in Tahoe Beta 2. Anything later requires VoodooHDA.
   
 ::: details Legacy Audio Kext
 
@@ -293,6 +294,7 @@ pci14e4,1686 = Broadcom BCM57766
 * [AirportItlwm](https://github.com/OpenIntelWireless/itlwm/releases)
   * Adds support for a large variety of Intel wireless cards and works natively in recovery thanks to IO80211Family integration
   * Requires macOS 10.13 or newer and requires Apple's Secure Boot to function correctly
+  * Currently does not work on Sequoia and Later.
 * [Itlwm](https://github.com/OpenIntelWireless/itlwm/releases)
   * Alternative to AirportItlwm for systems where Apple's Secure Boot cannot be enabled
   * Requires [Heliport](https://github.com/OpenIntelWireless/HeliPort/releases)

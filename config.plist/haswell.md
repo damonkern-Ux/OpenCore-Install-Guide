@@ -152,7 +152,6 @@ We also add 3 more properties, `framebuffer-patch-enable`, `framebuffer-stolenme
 
 * Applies AppleALC audio injection, you'll need to do your own research on which codec your motherboard has and match it with AppleALC's layout. [AppleALC Supported Codecs](https://github.com/acidanthera/AppleALC/wiki/Supported-codecs).
 * You can delete this property outright as it's unused for us at this time. If deleting 'layout-id' leaves PciRoot(0x0)/Pci(0x1b,0x0) dictionary empty, delete it as well. You might end up with unbootable system otherwise.
-
 For us, we'll be using the boot-arg `alcid=xxx` instead to accomplish this. `alcid` will override all other layout-IDs present. More info on this is covered in the [Post-Install Page](https://dortania.github.io/OpenCore-Post-Install/)
 
 :::
@@ -437,7 +436,7 @@ Used for running OC debugging tools like the shell, ProperTree's snapshot functi
 
 Used for specifying irregular boot paths that can't be found naturally with OpenCore.
 
-Won't be covered here, see 8.5 of [Configuration.pdf](https://github.com/acidanthera/OpenCorePkg/blob/master/Docs/Configuration.pdf) for more info
+Won't be covered here, see 8.6 of [Configuration.pdf](https://github.com/acidanthera/OpenCorePkg/blob/master/Docs/Configuration.pdf) for more info
 
 ## NVRAM
 

@@ -9,8 +9,14 @@ These settings in your config.plist can restrict which macOS versions OpenCore w
 OpenCore by default has [Apple Secure Boot](https://dortania.github.io/OpenCore-Post-Install/universal/security/applesecureboot.html#what-is-apple-secure-boot) enabled.
 This enables security features such as the verification of macOS' `boot.efi`, with the side effect of restricting which macOS versions OpenCore will boot.
 
-* Sonoma and above (14.4+): Due to increased security measures in Sonoma and newer, in order to install and update macOS you must set SecureBootModel to `Disabled` otherwise it will boot-loop. It is recommended to turn it back on after for security.
-* Big Sur to Ventura (11 - 13): The recommended value is `Default`.
+
+=======
+* Big Sur and Above (11.0+): The recommended value is `Default`.
+  
+**Note for macOS Sonoma 14 and above**: 
+Due to macOS polling for more information from the Mac's T2 chip of which we don't have you need to set SecureBootModel to `Disabled` for the duration of the install, after successfully booting into the desktop you can set SecureBootModel back to `Default`, this also applies to updating the OS to a minor release (i.e 14.6 -> 14.7) or a major release (i.e 14.7 -> 15.0)
+
+>>>>>>> pr-463
 * High Sierra-Catalina (10.13-10.15):
   * If your model is not listed below, set to `Disabled`.
   * If running NVIDIA Web Drivers, set to `Disabled`.

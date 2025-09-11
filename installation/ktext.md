@@ -3,10 +3,10 @@
 This section is for gathering miscellaneous files for booting macOS, we do expect you to know your hardware well before starting and hopefully made a Hackintosh before as we won't be deep diving in here.
 
 > What's the best way to figure out if my hardware is supported?
-See the [**Hardware Limitations page**](macos-limits.md) for some better insight into what macOS requires to boot, hardware support between Clover and OpenCore are quite similar.
+See the [**Hardware Limitations page**](../macos-limits.md) for some better insight into what macOS requires to boot, hardware support between Clover and OpenCore are quite similar.
 
 > What are some ways to figure out what hardware I have?
-See the page before: [Finding your hardware](./find-hardware.md)
+See the page before: [Finding your hardware](../find-hardware.md)
 
 [[toc]]
 
@@ -22,10 +22,10 @@ Firmware drivers are drivers used by OpenCore in the UEFI environment. They're m
 
 For the majority of systems, you'll only need 2 `.efi` drivers to get up and running:
 
-* [HfsPlus.efi](https://github.com/acidanthera/OcBinaryData/blob/master/Drivers/HfsPlus.efi)(<span style="color:red">Required</span>)
+* [HfsPlus.efi](https://github.com/acidanthera/OcBinaryData/blob/master/Drivers/HfsPlus.efi) (<span style="color:red">Required</span>)
   * Needed for seeing HFS volumes(ie. macOS Installers and Recovery partitions/images). **Do not mix other HFS drivers**
-  * For Sandy Bridge and older(as well as low end Ivy Bridge(i3 and Celerons), see the legacy section below
-* [OpenRuntime.efi](https://github.com/acidanthera/OpenCorePkg/releases)(<span style="color:red">Required</span>)
+  * For Sandy Bridge and olderas well as low end Ivy Bridge(i3 and Celerons), see the legacy section below
+* [OpenRuntime.efi](https://github.com/acidanthera/OpenCorePkg/releases) (<span style="color:red">Required</span>)
   * Replacement for [AptioMemoryFix.efi](https://github.com/acidanthera/AptioFixPkg), used as an extension for OpenCore to help with patching boot.efi for NVRAM fixes and better memory management.
   * Reminder this was bundled in OpenCorePkg we downloaded earlier
 
@@ -163,7 +163,7 @@ Here we're going to assume you know what ethernet card your system has, reminder
   * Required for most AMD boards running Intel NICs
   * Requires macOS 12 and above
 * [SmallTreeIntel82576](https://github.com/khronokernel/SmallTree-I211-AT-patch/releases)
-  * Required for I211 NICs running on macOS versions up to Big Sur, based off of the SmallTree kext but patched to support I211 (doesn't work on macOS 12 [Monterey](./extras/monterey.md#ethernet) or above)
+  * Required for I211 NICs running on macOS versions up to Big Sur, based off of the SmallTree kext but patched to support I211 (doesn't work on macOS 12 [Monterey](../extras/monterey.md#ethernet) or above)
   * Required for most AMD boards running Intel NICs
   * Requires OS X 10.9-12(v1.0.6), macOS 10.13-14(v1.2.5), macOS 10.15+(v1.3.0)
 * [AtherosE2200Ethernet](https://github.com/Mieze/AtherosE2200Ethernet/releases)
@@ -177,11 +177,11 @@ Here we're going to assume you know what ethernet card your system has, reminder
 * [LucyRTL8125Ethernet](https://www.insanelymac.com/forum/files/file/1004-lucyrtl8125ethernet/)
   * For Realtek's 2.5Gb Ethernet
   * Requires macOS 10.15 or newer
-* For Intel's I225-V NICs, patches are mentioned in the desktop [Comet Lake DeviceProperties](config.plist/comet-lake.md#deviceproperties) section.
-  * For macOS 13 and above, the kext supporting I225-V NICs was dropped and replaced with a DriverKit DEXT instead. This DEXT requires working VT-d, so we recommended reusing the older kext: [AppleIntelI210Ethernet](extra-files/AppleIntelI210Ethernet.kext.zip)
+* For Intel's I225-V NICs, patches are mentioned in the desktop [Comet Lake DeviceProperties](../config.plist/comet-lake.md#deviceproperties) section.
+  * For macOS 13 and above, the kext supporting I225-V NICs was dropped and replaced with a DriverKit DEXT instead. This DEXT requires working VT-d, so we recommended reusing the older kext: [AppleIntelI210Ethernet](../extra-files/AppleIntelI210Ethernet.kext.zip)
     * Monterey and older need not concern
   * Requires macOS 10.15 or newer
-* For Intel's I350 NICs, patches are mentioned in the HEDT [Sandy and Ivy Bridge-E DeviceProperties](config-HEDT/ivy-bridge-e.md#deviceproperties) section. No kext is required.
+* For Intel's I350 NICs, patches are mentioned in the HEDT [Sandy and Ivy Bridge-E DeviceProperties](../config-HEDT/ivy-bridge-e.md#deviceproperties) section. No kext is required.
   * Requires OS X 10.10 or newer
 
 ::: details Legacy Ethernet Kexts
@@ -292,7 +292,7 @@ pci14e4,1686 = Broadcom BCM57766
 * [AirportItlwm](https://github.com/OpenIntelWireless/itlwm/releases)
   * Adds support for a large variety of Intel wireless cards and works natively in recovery thanks to IO80211Family integration
   * Requires macOS 10.13 or newer and requires Apple's Secure Boot to function correctly
-  * Currently does not work on Sequoia and Later.
+  * Currently does not work on Sequoia and Later without extensive work.
 * [Itlwm](https://github.com/OpenIntelWireless/itlwm/releases)
   * Alternative to AirportItlwm for systems where Apple's Secure Boot cannot be enabled
   * Requires [Heliport](https://github.com/OpenIntelWireless/HeliPort/releases)
@@ -322,7 +322,7 @@ To enable AirportItlwm support with OpenCore, you'll need to either:
 * [AirportBrcmFixup](https://github.com/acidanthera/AirportBrcmFixup/releases)
   * Used for patching non-Apple/non-Fenvi Broadcom cards, **will not work on Intel, Killer, Realtek, etc**
   * Requires OS X 10.10 or newer
-  * For Big Sur see [Big Sur Known Issues](./extras/big-sur#known-issues) for extra steps regarding AirPortBrcm4360 drivers.
+  * For Big Sur see [Big Sur Known Issues](../extras/big-sur#known-issues) for extra steps regarding AirPortBrcm4360 drivers.
 * [BrcmPatchRAM](https://github.com/acidanthera/BrcmPatchRAM/releases)
   * Used for uploading firmware on Broadcom Bluetooth chipset, required for all non-Apple/non-Fenvi Airport cards.
   * To be paired with BrcmFirmwareData.kext

@@ -1,6 +1,7 @@
 ## Changes Proposed ##
 Followinf changes were suggested in Reddit
- * Video Patches. iGPU
- * Sleep, Wake, Hibernation
+ * Video Patches. iGPU notes completion.
+ * Sleep, Wake, Hibernation.
  * NootRX, NootedRed for GPU kexts.
- * incorporating changes from oc-little-translated.
+ * Incorporating changes from oc-little-translated.
+ * HDMI fixes.
